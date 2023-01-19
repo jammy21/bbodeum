@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bbodeum.member.dao.MemberMapper">
+	
+  <select id="selectById" parameterType="String" resultType="Member">
+    SELECT * FROM member 
+    WHERE mem_id=#{memId}
+  </select>
+  
+  <insert id="insert" parameterType="Member">
+  	INSERT INTO member
+  	VALUES(#{memId}, #{memPwd}, #{memName}, #{memTel}, #{memEmail}, 1)
+  </insert>
+  
+  <update id="update" parameterType="Member">
+  	UPDATE member 
+  	SET mem_pwd=#{memPwd}, mem_name=#{memName}, mem_tel=#{memTel}, mem_email=#{memEmail} 
+  	WHERE mem_id=#{memId}
+  </update>
+
+  <update id="updateStatus" parameterType="String">
+  	UPDATE member 
+	SET mem_status=-1 
+	WHERE mem_id=#{memberId}
+  </update>
+  
+  
+</mapper>
