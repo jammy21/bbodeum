@@ -1,0 +1,60 @@
+<!-- <?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="MemberDAO">
+	<resultMap id="MemberMap" type="com.bbodeum.member.vo.Member">
+		<result column="mem_id" property="memId"/>
+		<result column="mem_pwd" property="memPwd"/>
+		<result column="mem_name" property="memName"/>		
+		<result column="mem_name" property="memTel"/>		
+		<result column="MEM_TEL" property="memEmail"/>		
+		<result column="MEM_STATUS" property="memStatus"/>		
+	</resultMap>
+
+	<parameterMap id="MemParamMap" type="경로모르겠다com.bbodeum.vo.Member"/>
+
+	<select id="selectById" resultType="com.bbodeum.Member.vo.Member">
+		<![CDATA[
+			SELECT * 
+			FROM member
+			WHERE mem_Id=#{memId}
+		]]>
+	</select>
+
+	<insert id="insertMember" resultMap="MemberMap">
+		<![CDATA[
+			INSERT INTO BOARD(MEM_ID,MEM_PWD,MEM_NAME,MEM_TEL,MEM_EMAIL,MEM_STATUS)
+			VALUES(#{memId}, #{memPwd}, #{memName}, #{memTel}, #{memEmail}, 1)
+		]]>
+	</insert>
+	
+	<update id="updateInfo">
+		<![CDATA[
+			UPDATE member
+			SET TITLE=#{title},
+				CONTENT=#{content}
+			WHERE SEQ=#{seq}
+			
+		]]>
+	</update>
+	
+	<delete id="deleteBoard">
+		<![CDATA[
+			DELETE BOARD 
+			WHERE SEQ=#{seq}
+		]]>
+	</delete>
+	
+	
+	<select id="getBoardList" resultType="board">
+		<![CDATA[
+		
+			SELECT *
+			FROM BOARD
+			WHERE TITLE LIKE '%'||#{searchKeyword}||'%'
+			ORDER BY SEQ DESC
+		]]>
+	</select>
+
+</mapper> -->

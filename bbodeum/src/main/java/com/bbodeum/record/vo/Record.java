@@ -1,6 +1,15 @@
 package com.bbodeum.record.vo;
 
-import com.bbodeum.apply.vo.Apply;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+@Setter @Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 
 public class Record {
 	private int rcDogId;
